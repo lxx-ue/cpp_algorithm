@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -22,19 +23,44 @@ void BubbleSort(vector<int>& values) {
 	*/
 }
 
+void SelectionSort(vector<int>& values) {
+	for (auto i = values.begin(); i != values.end(); ++i) {
+		auto j = std::min_element(i, values.end());
+		swap(*i, *j);
+	}
+	/*
+	| Сложность |	Наилучший случай |	В среднем |	Наихудший случай |
+	| Время		|		O(n2)		 |	O(n2)	  |		O(n2)		 |
+	| Память	|		O(1)		 |	O(1)	  |		O(1)		 |
+	*/
+}
+
 int main()
 {
 	vector<int> list = { 3,19,8,0,48 };
 	cout << "Input array ..." << endl;
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < list.size(); i++)
 		cout << list[i] << '\t';
 	cout << endl;
 
 	BubbleSort(list);
 
 	cout << "Sorted array ..." << endl;
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < list.size(); i++)
 		cout << list[i] << '\t';
+	cout << endl;
+
+	vector<int> list2 = { 3, 4, 7, 4, 6, 5, 8 };
+	cout << "Input array ..." << endl;
+	for (int i = 0; i < list2.size(); i++)
+		cout << list2[i] << '\t';
+	cout << endl;
+
+	SelectionSort(list2);
+
+	cout << "Sorted array ..." << endl;
+	for (int i = 0; i < list2.size(); i++)
+		cout << list2[i] << '\t';
 	cout << endl;
 }
 
