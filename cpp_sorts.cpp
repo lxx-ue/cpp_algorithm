@@ -35,6 +35,24 @@ void SelectionSort(vector<int>& values) {
 	*/
 }
 
+void InsertionSort(vector<int>& values) {
+	for (size_t i = 1; i < values.size(); ++i) {
+		int x = values[i];
+		size_t j = i;
+		while (j > 0 && values[j - 1] > x) {
+			values[j] = values[j - 1];
+			--j;
+		}
+		values[j] = x;
+	}
+	/*
+	| Сложность |	Наилучший случай |	В среднем |	Наихудший случай |
+	| Время		|		O(n)		 |	O(n2)	  |		O(n2)		 |
+	| Память	|		O(1)		 |	O(1)	  |		O(1)		 |
+	*/
+}
+
+
 int main()
 {
 	vector<int> list = { 3,19,8,0,48 };
